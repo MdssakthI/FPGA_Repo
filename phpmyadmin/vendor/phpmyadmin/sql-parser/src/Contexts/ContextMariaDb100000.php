@@ -1,12 +1,6 @@
 <?php
 
-/**
- * Context for MariaDB 10.0.
- *
- * This file was auto-generated.
- *
- * @see https://mariadb.com/kb/en/the-mariadb-library/reserved-words/
- */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Contexts;
 
@@ -16,9 +10,10 @@ use PhpMyAdmin\SqlParser\Token;
 /**
  * Context for MariaDB 10.0.
  *
- * @category   Contexts
+ * This class was auto-generated from tools/contexts/*.txt.
+ * Use tools/run_generators.sh for update.
  *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
+ * @see https://mariadb.com/kb/en/reserved-words/
  */
 class ContextMariaDb100000 extends Context
 {
@@ -31,9 +26,10 @@ class ContextMariaDb100000 extends Context
      *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
      *      Token::FLAG_KEYWORD_FUNCTION
      *
-     * @var array
+     * @var array<string,int>
+     * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static $KEYWORDS = array(
+    public static $KEYWORDS = [
         'AT' => 1, 'DO' => 1, 'IO' => 1, 'NO' => 1, 'XA' => 1,
         'ANY' => 1, 'CPU' => 1, 'END' => 1, 'IPC' => 1, 'NDB' => 1, 'NEW' => 1,
         'ONE' => 1, 'ROW' => 1,
@@ -126,10 +122,10 @@ class ContextMariaDb100000 extends Context
         'UNION' => 3, 'USAGE' => 3, 'USING' => 3, 'WHERE' => 3, 'WHILE' => 3,
         'WRITE' => 3,
         'BEFORE' => 3, 'CHANGE' => 3, 'COLUMN' => 3, 'CREATE' => 3, 'CURSOR' => 3,
-        'DELETE' => 3, 'ELSEIF' => 3, 'EXISTS' => 3, 'FLOAT4' => 3, 'FLOAT8' => 3,
-        'HAVING' => 3, 'IGNORE' => 3, 'INFILE' => 3, 'LINEAR' => 3, 'OPTION' => 3,
-        'REGEXP' => 3, 'RENAME' => 3, 'RETURN' => 3, 'REVOKE' => 3, 'SELECT' => 3,
-        'SIGNAL' => 3, 'UNLOCK' => 3, 'UPDATE' => 3,
+        'DELETE' => 3, 'ELSEIF' => 3, 'FLOAT4' => 3, 'FLOAT8' => 3, 'HAVING' => 3,
+        'IGNORE' => 3, 'INFILE' => 3, 'LINEAR' => 3, 'OPTION' => 3, 'REGEXP' => 3,
+        'RENAME' => 3, 'RETURN' => 3, 'REVOKE' => 3, 'SELECT' => 3, 'SIGNAL' => 3,
+        'UNLOCK' => 3, 'UPDATE' => 3,
         'ANALYZE' => 3, 'BETWEEN' => 3, 'CASCADE' => 3, 'COLLATE' => 3, 'DECLARE' => 3,
         'DELAYED' => 3, 'ESCAPED' => 3, 'EXPLAIN' => 3, 'FOREIGN' => 3, 'ITERATE' => 3,
         'LEADING' => 3, 'NATURAL' => 3, 'OUTFILE' => 3, 'PRIMARY' => 3, 'RELEASE' => 3,
@@ -278,7 +274,7 @@ class ContextMariaDb100000 extends Context
         'MOD' => 35,
         'LEFT' => 35,
         'MATCH' => 35, 'RIGHT' => 35,
-        'INSERT' => 35, 'REPEAT' => 35, 'SCHEMA' => 35, 'VALUES' => 35,
+        'EXISTS' => 35, 'INSERT' => 35, 'REPEAT' => 35, 'SCHEMA' => 35, 'VALUES' => 35,
         'CONVERT' => 35, 'DEFAULT' => 35, 'REPLACE' => 35,
         'DATABASE' => 35, 'UTC_DATE' => 35, 'UTC_TIME' => 35,
         'LOCALTIME' => 35,
@@ -299,6 +295,6 @@ class ContextMariaDb100000 extends Context
 
         'CHAR' => 43,
         'BINARY' => 43,
-        'INTERVAL' => 43
-    );
+        'INTERVAL' => 43,
+    ];
 }

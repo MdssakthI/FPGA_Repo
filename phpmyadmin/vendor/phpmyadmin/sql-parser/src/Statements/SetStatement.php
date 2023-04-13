@@ -1,8 +1,9 @@
 <?php
-
 /**
  * `SET` statement.
  */
+
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
@@ -10,12 +11,10 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Statement;
 
+use function trim;
+
 /**
  * `SET` statement.
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class SetStatement extends Statement
 {
@@ -26,39 +25,39 @@ class SetStatement extends Statement
      *
      * @var array
      */
-    public static $CLAUSES = array(
-        'SET' => array(
+    public static $CLAUSES = [
+        'SET' => [
             'SET',
-            3
-        ),
-        '_END_OPTIONS' => array(
+            3,
+        ],
+        '_END_OPTIONS' => [
             '_END_OPTIONS',
-            1
-        )
-    );
+            1,
+        ],
+    ];
 
     /**
-     * Possible exceptions in SET statment.
+     * Possible exceptions in SET statement.
      *
      * @var array
      */
-    public static $OPTIONS = array(
-        'CHARSET' => array(
+    public static $OPTIONS = [
+        'CHARSET' => [
             3,
             'var',
-        ),
-        'CHARACTER SET' => array(
+        ],
+        'CHARACTER SET' => [
             3,
             'var',
-        ),
-        'NAMES' => array(
+        ],
+        'NAMES' => [
             3,
             'var',
-        ),
-        'PASSWORD' => array(
+        ],
+        'PASSWORD' => [
             3,
             'expr',
-        ),
+        ],
         'SESSION' => 3,
         'GLOBAL' => 3,
         'PERSIST' => 3,
@@ -67,15 +66,16 @@ class SetStatement extends Statement
         '@@GLOBAL' => 3,
         '@@PERSIST' => 3,
         '@@PERSIST_ONLY' => 3,
-    );
+    ];
 
-    public static $END_OPTIONS = array(
-        'COLLATE' => array(
+    /** @var array */
+    public static $END_OPTIONS = [
+        'COLLATE' => [
             1,
             'var',
-        ),
-        'DEFAULT' => 1
-    );
+        ],
+        'DEFAULT' => 1,
+    ];
 
     /**
      * Options used in current statement.
@@ -87,9 +87,9 @@ class SetStatement extends Statement
     /**
      * The end options of this query.
      *
-     * @var OptionsArray
-     *
      * @see static::$END_OPTIONS
+     *
+     * @var OptionsArray
      */
     public $end_options;
 

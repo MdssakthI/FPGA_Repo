@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Usbwebserver</title>
+	<title>USBWebServer</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
@@ -13,15 +13,15 @@
 		<ul id="menu">
 			<li>
 				<div id="menuleft"></div>
-				<a id="menua" href="http://www.usbwebserver.net">
-					USBWebserver.net
+				<a id="menua" href="https://usbwebserver.yura.mk.ua/">
+					usbwebserver.yura.mk.ua
 				</a>
 				<div id="menuright"></div>
 			</li>
 			<li>
 				<div id="menuleft"></div>
-				<a id="menua" href="http://www.border-it.nl">
-					Border-IT
+				<a id="menua" href="https://yura.mk.ua">
+					yura.mk.ua
 				</a>
 				<div id="menuright"></div>
 			</li>
@@ -30,15 +30,15 @@
 		<div id="content">
 			<div id="contentleft">
 
-				<h1>USBWebserver V8.6.4</h1>
+				<h1>USBWebserver V8.6.5</h1>
 				<p>
 					<ul>
 						<li>14 different languages</li>
 						<li>DPI bug fixed</li>
-						<li>Php <?php echo phpversion(); ?></li>
+						<li>PHP <?php echo phpversion(); ?></li>
 						<li>Httpd <?php echo apache_get_version(); ?></li>
-						<li>PhpMyAdmin 4.7.5</li>
-						<li>MySQL 5.7.29</li>
+						<li>PhpMyAdmin 5.1.3</li>
+						<li>MySQL 5.7.36</li>
 					</ul>
 				</p>
 				<h1>PHP <?php echo phpversion(); ?> info</h1>
@@ -52,7 +52,7 @@
 				?>
 			
 			</div>
-			<a href="http://www.usbwebserver.net" id="banner"></a>
+			<a href="https://usbwebserver.yura.mk.ua/" id="banner"></a>
 			<br style="clear:both">
 		</div>
 	</div>

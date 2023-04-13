@@ -1,10 +1,11 @@
 <?php
-
 /**
  * Parses the create definition of a partition.
  *
  * Used for parsing `CREATE TABLE` statement.
  */
+
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
@@ -13,14 +14,16 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
+use function implode;
+use function is_array;
+use function trim;
+
 /**
  * Parses the create definition of a partition.
  *
  * Used for parsing `CREATE TABLE` statement.
  *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
+ * @final
  */
 class PartitionDefinition extends Component
 {
@@ -29,44 +32,44 @@ class PartitionDefinition extends Component
      *
      * @var array
      */
-    public static $OPTIONS = array(
-        'STORAGE ENGINE' => array(
+    public static $OPTIONS = [
+        'STORAGE ENGINE' => [
             1,
             'var',
-        ),
-        'ENGINE' => array(
+        ],
+        'ENGINE' => [
             1,
             'var',
-        ),
-        'COMMENT' => array(
+        ],
+        'COMMENT' => [
             2,
             'var',
-        ),
-        'DATA DIRECTORY' => array(
+        ],
+        'DATA DIRECTORY' => [
             3,
             'var',
-        ),
-        'INDEX DIRECTORY' => array(
+        ],
+        'INDEX DIRECTORY' => [
             4,
             'var',
-        ),
-        'MAX_ROWS' => array(
+        ],
+        'MAX_ROWS' => [
             5,
             'var',
-        ),
-        'MIN_ROWS' => array(
+        ],
+        'MIN_ROWS' => [
             6,
             'var',
-        ),
-        'TABLESPACE' => array(
+        ],
+        'TABLESPACE' => [
             7,
             'var',
-        ),
-        'NODEGROUP' => array(
+        ],
+        'NODEGROUP' => [
             8,
             'var',
-        )
-    );
+        ],
+    ];
 
     /**
      * Whether this entry is a subpartition or a partition.
@@ -117,9 +120,9 @@ class PartitionDefinition extends Component
      *
      * @return PartitionDefinition
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = new self();
+        $ret = new static();
 
         /**
          * The state of the parser.
@@ -175,8 +178,10 @@ class PartitionDefinition extends Component
                     if ($nextToken->type !== Token::TYPE_NONE) {
                         break;
                     }
+
                     $ret->name .= $nextToken->value;
                 }
+
                 $idx = $list->idx--;
                 // Get the first token after the white space.
                 $nextToken = $list->tokens[++$idx];
@@ -196,12 +201,13 @@ class PartitionDefinition extends Component
                     $ret->expr = Expression::parse(
                         $parser,
                         $list,
-                        array(
+                        [
                             'parenthesesDelimited' => true,
-                            'breakOnAlias' => true
-                        )
+                            'breakOnAlias' => true,
+                        ]
                     );
                 }
+
                 $state = 5;
             } elseif ($state === 5) {
                 $ret->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
@@ -211,12 +217,11 @@ class PartitionDefinition extends Component
                     $ret->subpartitions = ArrayObj::parse(
                         $parser,
                         $list,
-                        array(
-                            'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition'
-                        )
+                        ['type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition']
                     );
                     ++$list->idx;
                 }
+
                 break;
             }
         }
@@ -232,7 +237,7 @@ class PartitionDefinition extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         if (is_array($component)) {
             return "(\n" . implode(",\n", $component) . "\n)";
@@ -247,7 +252,8 @@ class PartitionDefinition extends Component
         return trim(
             'PARTITION ' . $component->name
             . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr . ' ')
-            . ((! empty($component->options) && ! empty($component->type)) ? '' : ' ') . $component->options . $subpartitions
+            . (! empty($component->options) && ! empty($component->type) ? '' : ' ')
+            . $component->options . $subpartitions
         );
     }
 }
