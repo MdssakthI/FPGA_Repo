@@ -1,19 +1,16 @@
-## USBWebServer V8.6.2
+## Project Update ##
 
-Most light weight local portable web server with Apache, PHP, MySQL and PHPMyAdmin for Windows on the Web. Just unzip enywhere (including USB flash drive), run and start using.
+Just setting up the work environment now. 
+For proof of concept, it should have as follows :
+- Way to enter info regarding a new system design with 5 fields (EDA, Board Used, IP, Peripheral Interfaced with IP (such as flash devices))
+- Way to search and view the database on the website
+- [Advanced Feature] Create drop down menu with some selections
+- [Advanced Feature] Create IP utilization chart in working system designs used by customers and hobbyists. Helps better dedicate development resources towards those IP's
+- Simple GUI (Will refine once MVP is achieved)
 
-remembering that this is not my project. It is part of the original site that is in the description, I just updated it. 
+## Special thanks to : ##
 
-## Database Access
-
-1. Login: root
-1. Password: usbw
-
-## Change log
-
-* Change: Set default port from 8080 to 80
-* Change: Set default MySQL port from 3307 to 3306
-
+## USBWebServer V8.6.2 used to deploy proof of concept
 ## version
 
 * Update: Apache version - 2.4.43
@@ -22,5 +19,4 @@ remembering that this is not my project. It is part of the original site that is
 * Update: MySQL version - 5.7.29
 
 ## Official Web Site
-
 [![Electronic](https://www.usbwebserver.net/images/upload/icons/electronic/publishing_black.svg)](https://www.usbwebserver.net/webserver/)
