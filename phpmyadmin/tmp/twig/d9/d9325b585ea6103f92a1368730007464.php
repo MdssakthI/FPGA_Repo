@@ -128,6 +128,6 @@ class __TwigTemplate_4516772258738b94a6ef25b51e11f474 extends \Twig\Template
 
     public function getSourceContext()
     {
-        return new Source("", "select_lang.twig", "C:\\Users\\nemo\\Documents\\usbwebserver\\phpmyadmin\\templates\\select_lang.twig");
+        return new Source("", "select_lang.twig", "C:\\Users\\PC\\Documents\\GitHub\\FPGA_Repo\\phpmyadmin\\templates\\select_lang.twig");
     }
 }

@@ -74,6 +74,6 @@ class __TwigTemplate_ba4a4c3406a1fe60376e76a2eb04f31f extends \Twig\Template
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/tabs_top.twig", "C:\\Users\\nemo\\Documents\\usbwebserver\\phpmyadmin\\templates\\config\\form_display\\tabs_top.twig");
+        return new Source("", "config/form_display/tabs_top.twig", "C:\\Users\\PC\\Documents\\GitHub\\FPGA_Repo\\phpmyadmin\\templates\\config\\form_display\\tabs_top.twig");
     }
 }

@@ -1,61 +1,110 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>USBWebServer</title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
-	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+	<title>FPGA Systems Repo</title>
+	<style>
+		.banner {
+			background-color: #0071C5;
+			color: white;
+			font-size: 36px;
+			font-weight: bold;
+			text-align: center;
+			padding: 20px;
+		}
+		.footer {
+			background-color: #333;
+			color: white;
+			text-align: center;
+			padding: 20px;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+		}
+		.btn {
+			background-color: #0071C5;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: bold;
+			margin: 10px;
+			cursor: pointer;
+		}
+		.btn:hover {
+			background-color: #005EA4;
+		}
+	</style>
 </head>
 <body>
-	<div id="container">
-		<img id="header" src="images/header.png">
-		<ul id="menu">
-			<li>
-				<div id="menuleft"></div>
-				<a id="menua" href="https://usbwebserver.yura.mk.ua/">
-					usbwebserver.yura.mk.ua
-				</a>
-				<div id="menuright"></div>
-			</li>
-			<li>
-				<div id="menuleft"></div>
-				<a id="menua" href="https://yura.mk.ua">
-					yura.mk.ua
-				</a>
-				<div id="menuright"></div>
-			</li>
-		</ul>
-		<div id="topcontent"></div>
-		<div id="content">
-			<div id="contentleft">
-
-				<h1>USBWebserver V8.6.5</h1>
-				<p>
-					<ul>
-						<li>14 different languages</li>
-						<li>DPI bug fixed</li>
-						<li>PHP <?php echo phpversion(); ?></li>
-						<li>Httpd <?php echo apache_get_version(); ?></li>
-						<li>PhpMyAdmin 5.1.3</li>
-						<li>MySQL 5.7.36</li>
-					</ul>
-				</p>
-				<h1>PHP <?php echo phpversion(); ?> info</h1>
-				<?php
-					ob_start();
-					phpinfo();
-					$i = ob_get_contents();
-					ob_end_clean();
-					
-					echo ( str_replace ( "module_Zend Optimizer", "module_Zend_Optimizer", preg_replace ( '%^.*<body>(.*)</body>.*$%ms', '$1', $i ) ) ) ;
-				?>
-			
-			</div>
-			<a href="https://usbwebserver.yura.mk.ua/" id="banner"></a>
-			<br style="clear:both">
-		</div>
+	<div class="banner">
+		FPGA Systems Repo
+	</div>
+	<div class="footer">
+		<button class="btn" onclick="location.href='mailto:sakthi.mohandas@gmail.com'">Contact Us</button>
 	</div>
 </body>
 </html>
-		
+
+
+<?php
+
+include "db_connect.php";
+
+?>
+
+<html>
+	<h2>Search FPGA Systems</h2>
+	<form action="search_keyword.php" method="get">
+		<label for="search-column">Search by:</label>
+		<select id="search-column" name="search-column">
+			<option value="IP">IP</option>
+			<option value="Peripherals">Peripherals</option>
+			<option value="Description">Description</option>
+		</select>
+		<label for="search-term">Search term:</label>
+		<input type="text" id="search-term" name="search-term">
+		<input type="submit" value="Search">
+	</form>
+	
+	<h2>Contribute to FPGA Repo</h2>
+	<form action="insert_data.php" method="post">
+	  <label for="eda_tool">EDA Tool:</label><br>
+	  <input type="text" id="eda_tool" name="eda_tool" maxlength="100" required><br>
+
+	  <label for="eda_version">EDA Version:</label><br>
+	  <input type="number" step="any" id="eda_version" name="eda_version" required><br>
+
+	  <label for="ip">IP:</label><br>
+	  <textarea id="ip" name="ip" rows="4" cols="50" maxlength="1500" required></textarea><br>
+
+	  <label for="peripherals">Peripherals:</label><br>
+	  <textarea id="peripherals" name="peripherals" rows="4" cols="50" maxlength="1500" required></textarea><br>
+
+	  <label for="description">Description:</label><br>
+	  <textarea id="description" name="description" rows="4" cols="50" maxlength="3000"></textarea><br>
+	  
+		<label for="entry_date">Entry Date:</label><br>
+		<input type="date" id="entry_date" name="entry_date" value="<?php echo date('Y-m-d'); ?>" required><br>
+
+	  <input type="submit" value="Submit">
+	  <input type="reset" value="Reset">
+	</form>
+
+</html>
+
+<?php
+//Test Function
+//include "test_db_read.php";
+
+//Search Function
+//include "search_keyword.php";
+
+
+// Close connection
+mysqli_close($conn); 
+
+
+?>
+
+</html>

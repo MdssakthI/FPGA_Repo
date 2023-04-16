@@ -69,6 +69,6 @@ class __TwigTemplate_51663ce607eb980d88593ae19da73526 extends \Twig\Template
 
     public function getSourceContext()
     {
-        return new Source("", "javascript/display.twig", "C:\\Users\\nemo\\Documents\\usbwebserver\\phpmyadmin\\templates\\javascript\\display.twig");
+        return new Source("", "javascript/display.twig", "C:\\Users\\PC\\Documents\\GitHub\\FPGA_Repo\\phpmyadmin\\templates\\javascript\\display.twig");
     }
 }

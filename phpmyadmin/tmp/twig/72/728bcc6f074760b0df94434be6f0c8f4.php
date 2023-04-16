@@ -174,6 +174,6 @@ class __TwigTemplate_a68d0567009587b97cf617219c6e5995 extends \Twig\Template
 
     public function getSourceContext()
     {
-        return new Source("", "menu/breadcrumbs.twig", "C:\\Users\\nemo\\Documents\\usbwebserver\\phpmyadmin\\templates\\menu\\breadcrumbs.twig");
+        return new Source("", "menu/breadcrumbs.twig", "C:\\Users\\PC\\Documents\\GitHub\\FPGA_Repo\\phpmyadmin\\templates\\menu\\breadcrumbs.twig");
     }
 }
