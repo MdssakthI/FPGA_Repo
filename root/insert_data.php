@@ -63,7 +63,7 @@
 		FPGA Systems Repository
 	</div>
 	<nav>
-		<a href="index.php">Home</a>
+		<a href="index.html">Home</a>
 		<a href="search_page.php">Search</a>
 		<a href="insert_page.php">Insert</a>
 		<a href="about.html">About</a>
