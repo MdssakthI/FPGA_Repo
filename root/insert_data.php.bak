@@ -24,9 +24,9 @@ echo "<p>entry_date: $entry_date</p>";
 
 // Prepare the SQL query
 // Prepare the SQL query
-$sql = "INSERT INTO `quartus_systems` ( `SystemID`.`EDA Tool`, `EDA Version`, `IP`, `Peripherals`, `Description`, `Entry Date`) VALUES ('4','$eda_tool', '$eda_version', '$ip', '$peripherals', '$description', '$entry_date')";
+$sql = "INSERT INTO `quartus_systems` ( `SystemID`,`EDA Tool`, `EDA Version`, `IP`, `Peripherals`, `Description`, `Entry Date`) VALUES (NULL,'$eda_tool', '$eda_version', '$ip', '$peripherals', '$description', '$entry_date')";
 echo ".$sql.";
-INSERT INTO `quartus_systems` (`SystemID`, `EDA Tool`, `EDA Version`, `IP`, `Peripherals`, `Description`, `Entry Date`) VALUES ('4', 'asdas', '23.1', 'asdasd', 'asdasd', 'asdasd', '2023-04-14')
+
 // Execute the query
 if (mysqli_query($conn, $sql)) {
   echo "Data inserted successfully.";

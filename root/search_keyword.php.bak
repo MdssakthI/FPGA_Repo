@@ -1,12 +1,12 @@
 <?php
 
 include "db_connect.php";
-$ip = $_GET["ip"];
+$searchterm = $_GET["search-term"];
+$searchcolumn = $_GET["search-column"];
 
-$whatisbeingsearched = $_GET["Search Parameter:"];
 // Run SELECT statement
-echo "<h2> Showing all the FPGA systems using the IP :  ". $ip ." </h2>";
-$sql = "SELECT SystemID, `EDA Tool`, `EDA Version`, IP, Peripherals, Description, `Entry Date` FROM quartus_systems WHERE ".$whatisbeingsearched." LIKE '%" . $ip. "%'";
+echo "<h2> Showing all the FPGA systems using the IP :  ". $searchterm ." </h2>";
+$sql = "SELECT SystemID, `EDA Tool`, `EDA Version`, IP, Peripherals, Description, `Entry Date` FROM quartus_systems WHERE ".$searchcolumn." LIKE '%" . $searchterm. "%'";
 $result = mysqli_query($conn, $sql);
 
 // Check if any rows were returned
